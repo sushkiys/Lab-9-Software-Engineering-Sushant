@@ -11,9 +11,16 @@ def encode(password):
 
     return encoded_pass
 
-
 def decode(encoded_password):
-
+    out_string = ""
+    num = int
+    for each in encoded_password:
+        if int(each) > 2:
+            num = int(each) - 3
+        else:
+            num = int(each) + 7
+        out_string += str(num)
+    return out_string
 
 if __name__ == "__main__":
     while True:
@@ -23,16 +30,16 @@ if __name__ == "__main__":
               "2. Decode\n"
               "3. Quit\n")
 
-        password = ""
-        new_pass = ""
+
         option = int(input("Please enter an option: "))
 
         if option == 1:
             password = input("Please enter your password to encode: ")
             new_pass = encode(password)
-            print("Your password has been encoded and stored!")
+            print("Your password has been encoded and stored!\n")
         elif option == 2:
-
+            solve = decode(new_pass)
+            print(f"The encoded password is {new_pass}, and the original password is {solve}.\n")
         else:
             break
 
